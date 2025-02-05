@@ -1,0 +1,388 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "abap_parser",
+  "rules": {
+    "source_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "introductory_statement"
+        }
+      ]
+    },
+    "introductory_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "class_pool"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "function_pool"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "interface_pool"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "program"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "report"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "type_pool"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "terminate"
+        }
+      ]
+    },
+    "class_pool": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "CLASS-POOL"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_message_id"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "function_pool": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "FUNCTION-POOL"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "list_options"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_message_id"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "list_options": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "NO"
+            },
+            {
+              "type": "STRING",
+              "value": "STANDARD"
+            },
+            {
+              "type": "STRING",
+              "value": "PAGE"
+            },
+            {
+              "type": "STRING",
+              "value": "HEADING"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "LINE-SIZE"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "LINE-COUNT"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "number"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "("
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "number"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ")"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "interface_pool": {
+      "type": "STRING",
+      "value": "INTERFACE-POOL"
+    },
+    "program": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "PROGRAM"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "list_options"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_message_id"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_reduced_functionality"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "report": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "REPORT"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "list_options"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_message_id"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_reduced_functionality"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "DEFINING"
+                },
+                {
+                  "type": "STRING",
+                  "value": "DATABASE"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "type_pool": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "TYPE-POOL"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "_reduced_functionality": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "REDUCED"
+        },
+        {
+          "type": "STRING",
+          "value": "FUNCTIONALITY"
+        }
+      ]
+    },
+    "_message_id": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "MESSAGE-ID"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        }
+      ]
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-z|A-Z]+"
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "[0-9]+"
+    },
+    "terminate": {
+      "type": "STRING",
+      "value": "."
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}

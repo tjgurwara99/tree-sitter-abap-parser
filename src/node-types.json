@@ -1,0 +1,255 @@
+[
+  {
+    "type": "class_pool",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_pool",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "list_options",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "introductory_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "class_pool",
+          "named": true
+        },
+        {
+          "type": "function_pool",
+          "named": true
+        },
+        {
+          "type": "interface_pool",
+          "named": true
+        },
+        {
+          "type": "program",
+          "named": true
+        },
+        {
+          "type": "report",
+          "named": true
+        },
+        {
+          "type": "terminate",
+          "named": true
+        },
+        {
+          "type": "type_pool",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list_options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "program",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "list_options",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "report",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "list_options",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "introductory_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_pool",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "CLASS-POOL",
+    "named": false
+  },
+  {
+    "type": "DATABASE",
+    "named": false
+  },
+  {
+    "type": "DEFINING",
+    "named": false
+  },
+  {
+    "type": "FUNCTION-POOL",
+    "named": false
+  },
+  {
+    "type": "FUNCTIONALITY",
+    "named": false
+  },
+  {
+    "type": "HEADING",
+    "named": false
+  },
+  {
+    "type": "LINE-COUNT",
+    "named": false
+  },
+  {
+    "type": "LINE-SIZE",
+    "named": false
+  },
+  {
+    "type": "MESSAGE-ID",
+    "named": false
+  },
+  {
+    "type": "NO",
+    "named": false
+  },
+  {
+    "type": "PAGE",
+    "named": false
+  },
+  {
+    "type": "PROGRAM",
+    "named": false
+  },
+  {
+    "type": "REDUCED",
+    "named": false
+  },
+  {
+    "type": "REPORT",
+    "named": false
+  },
+  {
+    "type": "STANDARD",
+    "named": false
+  },
+  {
+    "type": "TYPE-POOL",
+    "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "interface_pool",
+    "named": true
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "terminate",
+    "named": true
+  }
+]
